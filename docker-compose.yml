@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - $PWD/postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    command: ["sh", "./scripts/init_django.sh"]
+    ports:
+      - "8000:8000"
+      - "443:443"
+    environment:
+      - ENV=local
+      - SECRET_KEY='xxxxxxx'
+    volumes:
+      - .:/app
+    depends_on:
+      - db
