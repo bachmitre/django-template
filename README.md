@@ -6,6 +6,8 @@ A template for a simple bare-bone django app for quick prototyping and data mode
 
 Make sure that in the `docker-compose.yml` file the web container has the environment variable `ENV` set to `local`.
 Also change the `SECRET_KEY` to a random string.
+
+**docker-compose.yml:**
 ```shell
 version: "3.3"
 
@@ -46,8 +48,10 @@ However, after the model changes, do a ```Ctrl-C``` to stop the running containe
 ####Running the app in production mode
 Setting the `ENV` environment variable anything other than `local` will serve the app via ssl by gunicorn (this requires a valid cert with private key at the application root directory). 
 
-From `scripts/init_django.sh`:
+**scripts/init_django.sh**:
 ```shell
+...
+
 if [ "$ENV" = "local" ]; then
     python manage.py runserver 0.0.0.0:8000
 else
@@ -60,7 +64,7 @@ else
         --log-level=info \
         --certfile=cert.pem \
         --keyfile=privkey.pem
-fi;
+fi
 ```
 Then start the app via
 ```shell
