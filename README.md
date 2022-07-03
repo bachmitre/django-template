@@ -70,7 +70,7 @@ Then start the app via
 ```shell
 docker-compose up
 ```
-and access it via https://<your-cert-matching-dns-entry-pointing-to-your-machine>/ 
+and access it via https://[your-cert-matching-dns-entry-pointing-to-your-machine]/ 
 
 #### Directory structure
 ```shell
