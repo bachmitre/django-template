@@ -2,7 +2,7 @@
 
 A template for a simple bare-bone django app for quick prototyping and data modeling.
 
-####Running the app in development mode
+#### Running the app in development mode
 
 Make sure that in the `docker-compose.yml` file the web container has the environment variable `ENV` set to `local`.
 Also change the `SECRET_KEY` to a random string.
@@ -45,7 +45,7 @@ And access the app at http://localhost:8000
 Since the web container mounts the local application as a volume, any code changes will directly take effect. 
 However, after the model changes, do a ```Ctrl-C``` to stop the running containers, then restart them again. This will automatically create and apply the necessary migrations before starting the web application.
 
-####Running the app in production mode
+#### Running the app in production mode
 Setting the `ENV` environment variable anything other than `local` will serve the app via ssl by gunicorn (this requires a valid cert with private key at the application root directory). 
 
 **scripts/init_django.sh**:
@@ -72,7 +72,7 @@ docker-compose up
 ```
 and access it via https://<your-cert-matching-dns-entry-pointing-to-your-machine>/ 
 
-####Directory structure
+#### Directory structure
 ```shell
 ├── Dockerfile
 ├── README.md
